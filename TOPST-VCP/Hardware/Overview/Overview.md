@@ -36,7 +36,7 @@ Table 1.1 describes the features of the TCC7045.
 | Temperature      | -40 ~ 105℃                              |
 
 
-## Terminology  
+## 1.1 Terminology  
 
 **Table 1.2 terminology:**  
 
@@ -50,14 +50,14 @@ Table 1.1 describes the features of the TCC7045.
 | VCP         | Vehicle Control Processor                               |
 
 
-## Block Diagram
+## 1.2 Block Diagram
 
 Figure 1.1 shows the system block diagram of TOPST VCP.  
 
 <p align="center"><img src="https://github.com/Topst-Dev/Documentation/assets/161264431/176d5d74-3786-488c-95c3-30229d3babf9"></p>
 <p align="center"><strong>Figure 1.1 Block Diagram</strong></p>
 
-## TOPST VCP Overview
+## 1.3 TOPST VCP Overview
 TOPST VCP can implement the following functions:
 - Automotive Application
   - Car Audio Video Navigation (AVN)System, Digital Cluster, Head Up Display (HUD), etc.

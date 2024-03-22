@@ -32,7 +32,7 @@ If you run the following script without setting the options, you can create an i
 2. Install Linux emulator on Linux Host PC.
 3. Create the root file system directory.
 4. Install Bootstrap.
-5. Install Prebuild package.
+5. Install Prebuild package from .debFiles.
 6. Configure the root file system.
 7. Install **<code>Weston GUI Launcher.</code></strong>
 8. Create the Ubuntu Ext4 image.

@@ -28,14 +28,15 @@ The following describes the script to create the Ubuntu file system.
 
 If you run the following script without setting the options, you can create an image based on the options that are already set.
 
-1. Set the configuration to create the Ubuntu image.
-2. Install Linux emulator on Linux Host PC.
-3. Create the root file system directory.
-4. Install Bootstrap.
-5. Install Prebuild package from .debFiles.
-6. Configure the root file system.
-7. Install **<code>Weston GUI Launcher.</code></strong>
-8. Create the Ubuntu Ext4 image.
+1. Script Usage(Set the configuration to create the Ubuntu image).
+2. Default Settings for Options.
+3. Install Linux emulator on Linux Host PC.
+4. Create the root file system directory.
+5. Run deBootstrap.
+6. Install Prebuild package from .debFiles.
+7. Configure the root file system(rootfs).
+8. Install **<code>Weston GUI Launcher.</code></strong>
+9. Create the Ubuntu Ext4 image.
 
 ## 2.3 create_ubuntu_jammy_arm64_rootfs.sh 
 ### 2.3.1. Script Usage 
@@ -135,7 +136,7 @@ sudo chroot $TARGET_DIR /debootstrap/debootstrap --second-stage
 
 ### 2.3.6. Install Prebuilt Packages from .deb Files
 
-Install the generated package (kernel and module) compiled from “_TOPST Development User Guide_”.
+Install the generated package (kernel and module) compiled from “Documentation/TOPST-D3/Software/SDK/LINUX”.
 
 
 ```
@@ -158,12 +159,14 @@ sudo cp $PREBUILT_DEB/etc/modules-load.d/* $TARGET_DIR/etc/modules-load.d/
 
 Set the following system functions to the root file system:
 
-* Set up a source list for Advanced Package Tool (APT)
-* Set up a name server to set a domain for a computer
-* Set the user password
-* Enable the SSH daemon
-* Configure the Ethernet MAC Address
-* Configure Netplan with Dynamic Host Configuration Protocol (DHCP)
+* Add apt source list to the root filesystem(Set up a source list for Advanced Package Tool (APT))
+* Configure the rootfs(Set up a name server to set a domain for a computer)
+* Configure the root password
+* Add user named 'topst' and make them a sudoer
+* Install the openssh-server package
+* Enable root login via ssh
+* Configure the MAC Address
+* Configure Netplan for Dynamic Host Configuration Protocol (DHCP)
 
 ```
 APT_DIR=apt
@@ -214,7 +217,7 @@ optional: true
 EOF"
 ```
 
-### 2.3.8. Install Wayland Launcher
+### 2.3.8. Install Wayland GUI Launcher
 
 TOPST provides the GUI Launcher by using Weston Wayland.
 
@@ -226,7 +229,7 @@ sudo rm -rf $TARGET_DIR/root/install-weston.sh
 sudo cp application/TOPST-background.png $TARGET_DIR/usr/share/weston/
 ```
 
-### 2.3.9. Create Ext4 Image
+### 2.3.9. Create The Ext4 Image
 
 Create a root file system image with the settings shown above in Chapters 2.3.1 to 2.3.8. Use the generated image as the root file system when using the main core (CA72).
 
